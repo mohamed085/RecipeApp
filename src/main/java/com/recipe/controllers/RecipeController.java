@@ -24,7 +24,7 @@ public class RecipeController {
     public String getRecipe(@PathVariable String id, Model model) throws Exception {
         log.info("---Show recipe: " + id);
 
-        model.addAttribute("recipe", recipeService.getRecipeById(new Long(id)));
+        model.addAttribute("recipe", recipeService.findById(new Long(id)));
         return "recipe/show";
     }
 }
