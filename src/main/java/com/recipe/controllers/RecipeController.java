@@ -40,4 +40,19 @@ public class RecipeController {
         return "redirect:/recipe/" + savedCommand.getId();
     }
 
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable String id) {
+        recipeService.deleteById(Long.valueOf(id));
+
+        return "redirect:/";
+    }
+
+    @GetMapping("/update/{id}")
+    public String getUpdate(@PathVariable String id, Model model) {
+        Recipe recipe = recipeService.findById(Long.valueOf(id));
+        model.addAttribute("recipe", recipe);
+
+        return "recipe/recipeform";
+    }
+
 }
