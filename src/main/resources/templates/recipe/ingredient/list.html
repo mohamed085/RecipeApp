@@ -23,7 +23,14 @@
                     <div class="panel panel-primary">
 
                         <div class="panel-heading">
-                            <h1 class="panel-title">Ingredients</h1>
+                            <div class="row">
+                                <div class="col-md-10">
+                                    <h1 class="panel-title">Ingredients</h1>
+                                </div>
+                                <div class="col-md-2">
+                                    <a class="btn btn-default" th:href="@{'/recipe/' + ${recipe.id} + '/ingredient'}" role="button">New</a>
+                                </div>
+                            </div>
                         </div>
                         <div class="panel-body">
 
@@ -40,7 +47,7 @@
                                     </thead>
                                     <tr th:each="ingredient : ${recipe.ingredients}">
                                         <td th:text="${ingredient.id}">334</td>
-                                        <td th:text="${ingredient.amount} + ' ' + ${ingredient.uom.getDescription()} + ' ' + ${ingredient.description} + '/show'">Tasty Goodnees 3</td>
+                                        <td th:text="${ingredient.amount} + ' ' + ${ingredient.uom.getDescription()} + ' ' + ${ingredient.description}"></td>
                                         <td><a th:href="@{'/recipe/' + ${recipe.id} + '/ingredient/' + ${ingredient.id}}">View</a></td>
                                         <td><a th:href="@{'/recipe/' + ${recipe.id} + '/ingredient/' + ${ingredient.id} + '/update'}">Update</a></td>
                                         <td><a th:href="@{'/recipe/' + ${recipe.id} + '/ingredient/' + ${ingredient.id} + '/delete'}">Delete</a></td>
